@@ -42,6 +42,10 @@ void CDialogMore::OnBnClickedOk()
     // TODO: 在此添加控件通知处理程序代码
     if(m_pChess)
     {
+        if (m_comboxAI.GetCurSel() == AI_FOOLISH || m_comboxAI.GetCurSel() == AI_MIDDLE) {
+            AfxMessageBox(_T("教学版删除了弱智、中级模式，请选择初级、高级模式~"));
+            return;
+        }
         m_pChess->SetAIDepth(m_comboxAI.GetCurSel());
 
         switch(m_comboxVSMode.GetCurSel())
